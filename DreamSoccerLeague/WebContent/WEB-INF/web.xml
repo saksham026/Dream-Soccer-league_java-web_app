@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>DreamSoccerLeague</display-name>
+  
+  <welcome-file-list>
+    <welcome-file>DLSMain.html</welcome-file>
+  </welcome-file-list>
+  
+  <!--DATABASE MAPPING context param tags for Databse listeners  -->
+  <context-param>
+  	<param-name>drivername</param-name>
+  	<param-value>com.mysql.jdbc.Driver</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>url</param-name>
+  	<param-value>jdbc:mysql://localhost:3306/dreamsoccerleague</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>username</param-name>
+  	<param-value>root</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>password</param-name>
+  	<param-value>shubhankar1997#</param-value>
+  </context-param>
+  
+  <!-- SERVLETS MAPPING -->
+  
+  <servlet>
+    <servlet-name>adminServ</servlet-name>
+    <servlet-class>admin.servlets.AdminPortalServ</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>adminServ</servlet-name>
+    <url-pattern>/aLogin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>adminServ</servlet-name>
+    <url-pattern>/play</url-pattern>
+  </servlet-mapping>
+  
+  <!--Filter mapping  -->
+  <filter>
+    <filter-name>AdminLoginFilter</filter-name>
+    <filter-class>admin.filters.LoginFilter</filter-class>
+  </filter>
+  
+  
+  <filter-mapping>
+    <filter-name>AdminLoginFilter</filter-name>
+ 	 <url-pattern>/aLogin</url-pattern>
+  </filter-mapping>
+  
+  
+   <!-- SERVLETS MAPPING -->
+    <servlet>
+    <servlet-name>teamServ1</servlet-name>
+    <servlet-class>teams.servlet.TeamPortalServ</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>teamServ1</servlet-name>
+    <url-pattern>/tsignin</url-pattern>
+  </servlet-mapping>
+  
+  <!--Filter mapping  -->
+   <filter>
+    <filter-name>TeamLoginFilter</filter-name>
+    <filter-class>teams.filters.LoginFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>TeamLoginFilter</filter-name>
+ 	 <url-pattern>/tsignin</url-pattern>
+  </filter-mapping>
+  
+   <!-- SERVLETS MAPPING -->
+    <servlet>
+    <servlet-name>teamServ2</servlet-name>
+    <servlet-class>teams.servlet.TeamPortalServ</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>teamServ2</servlet-name>
+    <url-pattern>/tsignup</url-pattern>
+  </servlet-mapping>
+  
+  <!--Filter mapping  -->
+   <filter>
+    <filter-name>TeamSignUpFilter</filter-name>
+    <filter-class>teams.filters.SignUpFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>TeamSignUpFilter</filter-name>
+ 	 <url-pattern>/tsignup</url-pattern>
+  </filter-mapping>
+  
+   <!-- SERVLETS MAPPING -->
+    <servlet>
+    <servlet-name>UserServ1</servlet-name>
+    <servlet-class>users.servlets.UserPortalServ</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>UserServ1</servlet-name>
+    <url-pattern>/usignin</url-pattern>
+  </servlet-mapping>
+  
+  <!--Filter mapping  -->
+   <filter>
+    <filter-name>UserLoginFilter</filter-name>
+    <filter-class>users.filters.UserLoginFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>UserLoginFilter</filter-name>
+ 	 <url-pattern>/usignin</url-pattern>
+  </filter-mapping>
+  
+  
+   <!-- SERVLETS MAPPING -->
+    <servlet>
+    <servlet-name>UserServ2</servlet-name>
+    <servlet-class>users.servlets.UserPortalServ</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>UserServ2</servlet-name>
+    <url-pattern>/usignup</url-pattern>
+  </servlet-mapping>
+  
+  <!--Filter mapping  -->
+   <filter>
+    <filter-name>UserSignUpFilter</filter-name>
+    <filter-class>users.filters.UserSignUpFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>UserSignUpFilter</filter-name>
+ 	 <url-pattern>/usignup</url-pattern>
+  </filter-mapping>
+  
+  <!-- DATABASE LISTENER -->
+  <listener>
+  <listener-class>admin.listeners.DBListener</listener-class>
+  </listener>
+  
+  <!-- Session Listener -->
+   <listener>
+  <listener-class>admin.listeners.HttpSessionlistenn</listener-class>
+  </listener>
+  
+  
+  <!-- new functions -->
+   <!-- SERVLETS MAPPING -->
+    <servlet>
+    <servlet-name>TeamView1</servlet-name>
+    <servlet-class>teams.servlet.TeamPortalServ</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>TeamView1</servlet-name>
+    <url-pattern>/viewfix</url-pattern>
+  </servlet-mapping>
+  
+    <!-- SERVLETS MAPPING -->
+ 
+  <servlet-mapping>
+    <servlet-name>TeamView1</servlet-name>
+    <url-pattern>/viewLtable</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>TeamView1</servlet-name>
+    <url-pattern>/viewplayer</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+    <!-- SERVLETS MAPPING -->
+      <servlet>
+    <servlet-name>UserView1</servlet-name>
+    <servlet-class>users.servlets.UserPortalServ</servlet-class>
+  </servlet>
+ 
+      <servlet>
+    <servlet-name>UserView2</servlet-name>
+    <servlet-class>formTeam.jsp</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>UserView1</servlet-name>
+    <url-pattern>/viewstandings</url-pattern>
+  </servlet-mapping>
+  
+  <!--from jsp mapping -->
+   <servlet-mapping>
+    <servlet-name>UserView2</servlet-name>
+    <url-pattern>/createformjsp</url-pattern>
+  </servlet-mapping>
+  
+  <!--to jsp mapping -->
+    <servlet-mapping>
+    <servlet-name>UserView1</servlet-name>
+    <url-pattern>/createform</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
+    <servlet-name>UserView1</servlet-name>
+    <url-pattern>/viewown</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet-mapping>
+    <servlet-name>UserView1</servlet-name>
+    <url-pattern>/currentview</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- session invalidate mappings -->
+  
+  
+  <servlet-mapping>
+    <servlet-name>UserView1</servlet-name>
+    <url-pattern>/terminateuser</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>adminServ</servlet-name>
+    <url-pattern>/terminateadmin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>TeamView1</servlet-name>
+    <url-pattern>/terminateteam</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>TeamView1</servlet-name>
+    <url-pattern>/signin</url-pattern>
+  </servlet-mapping>
+  
+  <!-- insert player details filter -->
+  <!--Filter mapping  -->
+  <filter>
+    <filter-name>PlayerDetailsFilter</filter-name>
+    <filter-class>teams.filters.RetrievePlayerDetails</filter-class>
+  </filter>
+  
+  
+  <filter-mapping>
+    <filter-name>PlayerDetailsFilter</filter-name>
+ 	 <url-pattern>/signin</url-pattern>
+  </filter-mapping>
+  
+</web-app>
